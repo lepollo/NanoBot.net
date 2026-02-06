@@ -1,0 +1,21 @@
+[Bb]in/
+[Oo]bj/
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# .NET Core
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Visual Studio Code
+.vscode/
+
+# Config files with secrets
+config.json
+cron.json
+memory/
