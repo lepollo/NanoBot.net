@@ -33,22 +33,12 @@ class Program
                   "providers": {
                     "openai": {
                       "apiKey": ""
-                    },
-                    "ollama": {
-                      "apiBase": "http://192.168.6.194:11434"
                     }
                   },
                   "agents": {
                     "defaults": {
                       "model": "gpt-4o"
                     }
-                  },
-                  "embeddings": {
-                    "provider": "ollama",
-                    "model": "bge-m3"
-                  },
-                  "ocr": {
-                    "model": "deepseek-ocr"
                   }
                 }
                 """;
@@ -181,7 +171,9 @@ class Program
             registry.Register(new ReadFileTool());
             registry.Register(new WriteFileTool());
             registry.Register(new ShellTool());
-            registry.Register(new WebSearchTool(config.WebSearch?.ApiKey ?? ""));
+            
+            string braveKey = config.WebSearch?.ApiKey ?? Environment.GetEnvironmentVariable("BRAVE_API_KEY") ?? "";
+            registry.Register(new WebSearchTool(braveKey));
             registry.Register(new WebFetchTool());
             var memory = new FileMemoryStore(workspace);
             var agent = new Agent(provider, registry, memory);

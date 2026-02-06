@@ -6,19 +6,6 @@ public class AppConfig
     public AgentSettings Agents { get; set; } = new();
     public WebSearchSettings WebSearch { get; set; } = new();
     public Dictionary<string, ChannelSettings> Channels { get; set; } = new();
-    public EmbeddingSettings Embeddings { get; set; } = new();
-    public OcrSettings Ocr { get; set; } = new();
-}
-
-public class EmbeddingSettings
-{
-    public string? Provider { get; set; }
-    public string? Model { get; set; }
-}
-
-public class OcrSettings
-{
-    public string? Model { get; set; }
 }
 
 public class ProviderSettings
