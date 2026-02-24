@@ -35,7 +35,7 @@ public class Agent
             context = context.Substring(0, 20000) + "... (Memory Truncated)";
         }
 
-        var systemPrompt = "You are nanobot, a helpful AI assistant.";
+        var systemPrompt = "You are nanobot, a helpful AI assistant. You have access to tools to fetch real-time data like weather, stock prices, and file system operations. When a user asks for such information, use the appropriate tool.";
         if (!string.IsNullOrWhiteSpace(context))
         {
             systemPrompt += $"\n\nMemory Context:\n{context}";
